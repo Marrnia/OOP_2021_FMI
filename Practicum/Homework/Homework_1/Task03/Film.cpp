@@ -5,12 +5,12 @@ void Film::erase() {
 }
 
 void Film::copy(const Film &other) {
-    setName(other.name);
+    setName(other.name);//error
     setAwards(other.awards);
 }
 
 Film::Film() {
-    this->name = new (nothrow) char[6];
+    this->name = new char[6];
     if (!name) throw "No memory!";
     strcpy_s(this->name, 6, "Empty");
 }
@@ -37,13 +37,10 @@ Film::~Film() {
 }
 
 void Film::setName(const char *name) {
-    if (name != nullptr) {
-        erase();
-    }
     if (name[0] < 'A' || name[0] > 'Z') {
         throw "First letter must be capital!";
     }
-    this->name = new (nothrow) char[strlen(name) + 1];
+    this->name = new char[strlen(name) + 1];
     if (!name) throw "No memory!";
     strcpy_s(this->name, strlen(name) + 1, name);
 }

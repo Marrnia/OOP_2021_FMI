@@ -28,7 +28,7 @@ void FilmRanking :: sortByAwards() {
 
 FilmRanking :: FilmRanking() {
     size = 1;
-    films = new Film[size];
+    films = new (nothrow) Film[size];
     if (!films) throw "No memory";
 }
 
@@ -54,7 +54,7 @@ FilmRanking :: ~FilmRanking() {
 }
 
 void FilmRanking :: setFilms(const Film *films) {
-    this->films = new Film[getSize()];
+    this->films = new (nothrow) Film[getSize()];
     if (!this->films) throw "No memory!";
     for (size_t i = 0; i < getSize(); i++) {
         this->films[i] = films[i];

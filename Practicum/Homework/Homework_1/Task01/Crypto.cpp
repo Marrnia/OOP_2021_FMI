@@ -41,6 +41,7 @@ Crypto::~Crypto() {
 
 
 void Crypto::setName(const char *name) {
+    erase();
     if (strlen(name) > 30) {
         throw "Too long name.";
     }

@@ -37,6 +37,7 @@ Film::~Film() {
 }
 
 void Film::setName(const char *name) {
+    erase();
     if (name[0] < 'A' || name[0] > 'Z') {
         throw "First letter must be capital!";
     }

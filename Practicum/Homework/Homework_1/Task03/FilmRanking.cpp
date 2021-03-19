@@ -54,6 +54,7 @@ FilmRanking :: ~FilmRanking() {
 }
 
 void FilmRanking :: setFilms(const Film *films) {
+    erase();
     this->films = new (nothrow) Film[getSize()];
     if (!this->films) throw "No memory!";
     for (size_t i = 0; i < getSize(); i++) {

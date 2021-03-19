@@ -12,6 +12,7 @@ private:
 
     void erase();
     void copy(const Crypto &);
+    int priceDifference() const;
 public:
     Crypto();
     Crypto(const char*, const double &, const double &);
@@ -27,7 +28,6 @@ public:
     double getLastPrice() const;
     double getCurrentPrice() const;
 
-    int priceDifference() const;
     void print() const;
 };
 

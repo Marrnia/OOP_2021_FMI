@@ -52,7 +52,7 @@ void Film::setAwards(const unsigned &awards) {
     this->awards = awards;
 }
 
-char *Film::getName() const {
+const char *Film::getName() const {
     return name;
 }
 

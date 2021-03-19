@@ -23,7 +23,7 @@ public:
     void setLastPrice(const double &);
     void setCurrentPrice(const double &);
 
-    char *getName() const;
+    const char *getName() const;
     double getLastPrice() const;
     double getCurrentPrice() const;
 

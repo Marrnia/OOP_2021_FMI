@@ -65,7 +65,7 @@ void Crypto::setCurrentPrice(const double &currentPrice) {
     this->currentPrice = currentPrice;
 }
 
-char* Crypto::getName() const{
+const char* Crypto::getName() const{
     return this->name;
 }
 

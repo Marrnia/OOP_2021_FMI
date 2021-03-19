@@ -21,7 +21,7 @@ public:
     void setName(const char *);
     void setAwards(const unsigned &);
 
-    char *getName() const;
+    const char *getName() const;
     unsigned getAwards() const;
 
     void print() const;

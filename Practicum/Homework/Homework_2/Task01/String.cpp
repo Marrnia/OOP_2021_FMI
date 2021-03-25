@@ -64,7 +64,8 @@ String :: String (const String &other) {
 
 String :: ~String () {
     size = capacity = 0;
-    erase();
+    if (data != nullptr)
+        erase();
 }
 
 void String :: setString (const char *str) {
@@ -191,26 +192,34 @@ String &String :: operator= (const char *other) {
     return *this;
 }
 
-String &String :: operator+ (const String &other) {
+String String :: operator+ (const String &other) {
+    String result;
+    for (st i = 0; i < this->size; i++) {
+        result.add(data[i]);
+    }
     for (st i = 0; i < other.size; i++) {
-        add(other[i]);
+        result.add(other[i]);
     }
-    return *this;
+    return result;
 }
 
-String &String :: operator+ (const char *other) {
+String String :: operator+ (const char *other) {
+    String result;
     st sizeStr = strlen(other);
-    for (st i = 0; i < sizeStr; i++) {
-        add(other[i]);
+    for (st i = 0; i < this->size; i++) {
+        result.add(data[i]);
     }
-    return *this;
+    for (st i = 0; i < sizeStr; i++) {
+        result.add(other[i]);
+    }
+    return result;
 }
 
-String &String :: operator+= (const String &other) {
+String String :: operator+= (const String &other) {
     return *this + other;
 }
 
-String &String :: operator+= (const char *other) {
+String String :: operator+= (const char *other) {
     return *this + other;
 }
 

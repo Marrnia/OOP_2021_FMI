@@ -16,5 +16,9 @@ int main() {
     }
     String z3(z2);
     z3.print();
+    String z4 = z3 + z2;
+    z2.print();
+    z3.print();
+    z4.print();
     return 0;
 }

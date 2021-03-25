@@ -48,11 +48,11 @@ public:
     String &operator=(const String &);
     String &operator=(const char *);
     //String &operator=(const char &);
-    String &operator+(const String &);
-    String &operator+(const char *);
+    String operator+(const String &);
+    String operator+(const char *);
     //String &operator+(const char &);
-    String &operator+=(const String &);
-    String &operator+=(const char *);
+    String operator+=(const String &);
+    String operator+=(const char *);
     //String &operator+=(const char &);
     
     bool operator==(const String &);

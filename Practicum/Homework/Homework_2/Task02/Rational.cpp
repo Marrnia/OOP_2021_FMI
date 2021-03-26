@@ -98,22 +98,30 @@ Rational Rational :: operator/(const Rational& other) {
     return result;
 }
 
+bool Rational :: operator> (const Rational &other) {
+    return (((double)this->numerator/this->denominator) > ((double)other.numerator/other.denominator));
+}
+
+bool Rational :: operator< (const Rational &other) {
+    return (((double)this->numerator/this->denominator) < ((double)other.numerator/other.denominator));
+}
+
 bool Rational :: operator>=(const Rational& other) {
-    return (((double)this->numerator/this->denominator) >= ((double)other.numerator/other.denominator));
+    return !(*this < other);
 }
 
 bool Rational :: operator<=(const Rational& other) {
-    return (((double)this->numerator / this->denominator) <= ((double)other.numerator / other.denominator));
+    return !(*this > other);
 }
 
 bool Rational :: operator==(Rational other) {
     this->simplify();
     other.simplify();
-    return this->numerator == other.numerator && this->denominator == other.denominator ? true : false;
+    return this->numerator == other.numerator && this->denominator == other.denominator;
 }
 
 bool Rational :: operator!=(Rational other) {
-    return *this == other ? false : true;
+    return !(*this == other);
 }
 
 Rational &Rational :: operator=(const Rational &other) {

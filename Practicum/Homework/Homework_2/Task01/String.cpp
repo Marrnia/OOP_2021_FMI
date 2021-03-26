@@ -32,6 +32,7 @@ void String :: resize() {
 
 void String :: erase() {
     delete[] data;
+    data = nullptr;
 }
 
 void String :: printString () const {
@@ -188,7 +189,7 @@ String &String :: operator= (const String &other) {
 }
 
 String &String :: operator= (const char *other) {
-    setString(other);
+    copy(other);
     return *this;
 }
 
@@ -252,11 +253,11 @@ bool String :: operator== (const char *other) {
 }
 
 bool String :: operator!= (const String &other) {
-    return *this == other ? false : true;
+    return !(*this == other);
 }
 
 bool String :: operator!= (const char *other) {
-    return *this == other ? false : true;
+    return !(*this == other);
 }
 
 const char &String :: operator[] (const st &index) const {
